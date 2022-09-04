@@ -11,6 +11,7 @@
 #define DEFAULT 0
 #define SYMBOLS 1 
 #define NAV 2
+#define CONTROLS 3
 
 / {
         keymap {
@@ -24,20 +25,21 @@
 //                   | L2  | L1  | SPC |   | BKP | RET  |     |
                         bindings = <
    &kp TAB    &kp Q      &kp W      &kp F      &kp P      &kp B    &kp J &kp L      &kp U      &kp Y      &kp SEMI   &none
-   &kp ESC    &mt LGUI A &mt LALT R &mt CTRL S &mt SHFT T &kp G    &kp M &mt SHFT N &mt CTRL E &mt RALT I &mt RGUI O &kp SQT
+   &kp ESC    &mt LGUI A &mt LALT R &mt LCTRL S &mt LSHFT T &kp G    &kp M &mt LSHFT N &mt RCTRL E &mt RALT I &mt RGUI O &kp SQT
    &caps_word &kp Z      &kp X      &kp C      &kp D      &kp V    &kp K &kp H      &kp DOT    &kp COMMA  &kp FSLH   &none
-                                       &to 2 &to 1 &kp SPACE    &kp BSPC &kp RET &none
+                                       &to 2 &to 1 &kp SPACE       &kp BSPC &kp RET &none
                         >;
                 };
+
                 NAV {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  *  |  7  |  8  |  9  |  +  |   | LFT | DWN |  UP  | RGT |     |      |
+// |  TAB |  *  |  7  |  8  |  9  |  +  |   | LFT | DWN |  UP  | RGT | L4  | PSCR |
 // |  ESC |  =  |  6  |  5  |  4  |  0  |   |     | SHF | CTRL | ALT | GUI |      |
 // |      |  /  |  3  |  2  |  1  |  -  |   |     |     |      |     |     |      |
 //                    | L2  |     | SPC |   | BKP | RET |  L0  |
                         bindings = <
    &kp TAB &kp KP_MULTIPLY &kp N7      &kp N8      &kp N9      &kp PLUS  &kp LEFT &kp DOWN &kp UP   &kp RIGHT &none    &none
-   &kp ESC &mt LGUI EQUAL  &mt LALT N6 &mt CTRL N5 &mt SHFT N4 &kp N0    &none    &kp SHFT &kp CTRL &kp RALT  &kp RGUI &none
+   &kp ESC &mt LGUI EQUAL  &mt LALT N6 &mt LCTRL N5 &mt LSHFT N4 &kp N0    &none    &kp RSHFT &kp RCTRL &kp RALT  &kp RGUI &none
    &none   &kp FSLH        &kp N3      &kp N2      &kp N1      &kp MINUS $none    $none    $none    $none     $none    $none 
                           	  &to 2 &none &kp SPACE      &kp BSPC &kp RET &to 0
                         >;
@@ -56,5 +58,14 @@
                     	          &none &to 1 &kp SPACE    &kp ENT &kp RET &to 0
                         >;
                 };
+
+                CONTROLS {
+                        bindings = <
+   &none &none &bt BT_SEL 0 &bt BT_PRV &bt BT_NXT &none &none &none &none &none &none &none 
+   &none &none &none &none &none &none &none &none &none &none &none &none 
+   &none &none &none &none &none &none &none &none &none &none &none &none 
+   &bt BT_CLR &none &to 0 &none &none &to 0
+                        >;
+                  };
         };
 };
