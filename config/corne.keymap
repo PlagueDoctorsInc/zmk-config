@@ -14,6 +14,16 @@
 #define CONTROLS 3
 
 / {
+  behaviors {
+        hm: homerow_mods {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOMEROW_MODS";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
+        };
         keymap {
                 compatible = "zmk,keymap";
 
@@ -26,7 +36,7 @@
                         bindings = <
    &kp TAB    &kp Q      &kp W      &kp F      &kp P      &kp B    &kp J &kp L      &kp U      &kp Y      &kp SEMI   &none
    // &kp ESC &kp A &kp R &kp S &kp T &kp G &kp M &kp N &kp E &kp I &kp O &kp SQT
-   &kp ESC    &ht_tp LGUI A &ht_tp LALT R &ht_tp LCTRL S &ht_tp LSHFT T &kp G    &kp M &ht_tp LSHFT N &ht_tp RCTRL E &ht_tp LALT I &ht_tp RGUI O &kp SQT
+   &kp ESC    &hm LGUI A &hm LALT R &hm LCTRL S &hm LSHFT T &kp G    &kp M &hm LSHFT N &hm RCTRL E &hm LALT I &hm RGUI O &kp SQT
    &caps_word &kp Z      &kp X      &kp C      &kp D      &kp V    &kp K &kp H      &kp DOT    &kp COMMA  &kp FSLH   &none
                                        &to 2 &to 1 &kp SPACE       &kp BSPC &kp RET &none
                         >;
